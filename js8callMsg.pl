@@ -50,59 +50,32 @@ my $tag = "{01}";
 
 my $js8 = $preamble.$email."  $msg".$tag;
 	
-
+open TMP, ">$tmptxt";
+print TMP "$js8";
+close TMP;
 
 
 
 
 #OUTPUT FOR FORM SMSGTE
 ###########################
-if ($FORM{'rgram'}) {
-
-my $first = $FORM{'firstname'};
-print "Content-type: text/html\n\n";
-print "<html><head><title>$first</title></head>\n";
-print "<body><FONT SIZE = 5>$first</FONT><br><br>\n";
-
-print "<FONT SIZE = 10>OUTPUT OF FORM SMSGTE</FONT>\n";
-
-print "</body></html>\n";
-
-exit;
-}
 
 #OUTPUT FOR FORM APRS MSG
 ###########################
-if ($FORM{'rgram'}) {
 
-my $first = $FORM{'firstname'};
-print "Content-type: text/html\n\n";
-print "<html><head><title>$first</title></head>\n";
-print "<body><FONT SIZE = 5>$first</FONT><br><br>\n";
-
-print "<FONT SIZE = 10>OUTPUT OF FORM RADIOGRAM</FONT>\n";
-
-print "</body></html>\n";
-
-exit;
-}
 
 #MAIN PAGE MENU (FORMS)
 #######################
-if ($FORM{'213'}) {
-&twothirteen;
+if ($FORM{'EMAIL'}) {
+&toEmail;
 }
 
-if ($FORM{'rg'}) {
-&radiogram;
+if ($FORM{'SMS'}) {
+&toSMS;
 }
 
-if ($FORM{'email'}) {
-&email;
-}
-
-if ($FORM{'text'}) {
-&text;
+if ($FORM{'APRS'}) {
+&APRS;
 }
 
 #SUBROUTINES
@@ -132,7 +105,7 @@ exit;
 }
 
 #FORM EMAIL
-sub email {
+sub toEmail {
 print "Content-type: text/html\n\n";
 print "<html><head><title>APRS EMAIL MESSAGE - JS8Call</title>";
 print "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
@@ -142,7 +115,7 @@ print "<body style=\"background-color:FFCC33;\"><FONT SIZE = 5><b>APRS EMAIL MES
 
 print "<form method=POST action=$cgiurl>\n";
 
-print "<input id=tt name=tt type=hidden value=two13>\n";
+print "<input id=email name=EMAIL type=hidden>\n";
 
 # Reply checkbox
 print "<FONT SIZE = 3 color = Black><b>CHECK HERE IF REPLY</font>\&nbsp\;</b>\n";
@@ -211,8 +184,8 @@ exit;
 
 }
 
-#FORM RADIOGRAM
-sub radiogram {
+#FORM SMS
+sub toSMS {
 print "Content-type: text/html\n\n";
 print "<html><head><title>FORM ARRL RADIOGRAM</title></head>\n";
 print "<body><FONT SIZE = 5><b>FORM ARRL RADIOGRAM</b></FONT><br><br>\n";
@@ -229,8 +202,8 @@ print "</body></html>\n";
 exit;
 }
 
-#FORM EMAIL
-sub email {
+#FORM APRS
+sub toAPRS {
 print "Content-type: text/html\n\n";
 print "<html><head><title>SIMPLE EMAIL</title></head>\n";
 print "<body><FONT SIZE = 5><b>SIMPLE EMAIL</b></FONT><br><br>\n";
@@ -239,12 +212,3 @@ print "</body></html>\n";
 exit;
 }
 
-#FORM TEXT
-sub text {
-print "Content-type: text/html\n\n";
-print "<html><head><title>TEXT MESSAGE</title></head>\n";
-print "<body><FONT SIZE = 5><b>TEXT MESSAGE</b></FONT><br><br>\n";
-print "<FONT SIZE = 2 color = Black>TEXT MESSAGE GOES HERE</font>\&nbsp\;\&nbsp\;\n";
-print "</body></html>\n";
-exit;
-}
