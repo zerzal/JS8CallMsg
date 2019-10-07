@@ -1,4 +1,4 @@
-value="\"@ALLCALL APRS::SMSGTE   :@${phone} ${msg}\""
+$value="\"@ALLCALL APRS::SMSGTE   :@${phone} ${msg}\""
 
 
 #!/usr/bin/perl
@@ -43,69 +43,13 @@ foreach $pair (@pairs) {
 
   if ($FORM{'EMAIL'}) {
  
-my $incident = $FORM{'incident'};
-my $to = $FORM{'to'};
-my $tpos = $FORM{'tpos'};
+my $preamble = "\@ALLCALL APRS::EMAIL-2  :";
 my $email = $FORM{'email'};
-
-	if ($email !~ "@") {
-	    $email = $email ."\@winlink.org";
-	}
-
-my $cc = $FORM{'cc'};
-
-   if ($cc) {     
-  
-      if ($cc !~ "@") {
-	  $cc = $cc ."\@winlink.org";
-	 }
-   }
-
-my $from = $FORM{'from'};
-my $pt = $FORM{'title'};
-my $sig = $FORM{'sig'};
-my $subject = $FORM{'subject'};
-my $date = $FORM{'date'};
-my $time = $FORM{'time'};
 my $msg = $FORM{'msg'};
-my $approved = $FORM{'approved'};
-my $asig = $FORM{'asig'};
-my $atitle = $FORM{'atitle'};
-my $reply = $FORM{'reply'};
-my $rmsg = "*** THIS IS A REPLY ***";
-
-#File name generator
-my @chars = ("A".."Z", "0".."9");
-my $mid;
-$mid .= $chars[rand @chars] for 1..12;
-
-#Build body of email file
-
-    $filename = $mid.'.b2f';
+my $tag = "{01}";
 	
-my $bodyr = " ";
 
- if ($reply) {
-     $bodyr = "$rmsg\n\n";
-    }
-my $body0 = "GENERAL MESSAGE (ICS 213 - modified)\n\n";
-my $body1 = "1. Incident Name (Optional): $incident\n\n";
-my $body2 = "2. To (Name): $to\n";
-my $body2a = "\tPosition/Title: $tpos\n";
-my $body2b = "\tEmail: $email\n\n";
-my $body2c = "\tCC: $cc\n\n";
-my $body3 = "3. From (Name): $from\n";
-my $body3a = "\tPosition/Title: $pt\n";
-my $body3b = "\tSignature: $sig\n\n";
-my $body4 = "4. Subject: $subject\n\n";
-my $body5 = "5. Date: $date\n";
-my $body6 = "6. Time: $time\n\n";
-my $body7 = "7. Message:\n $msg\n\n";
-my $body8 = "8. Approved by: $approved\n";
-my $body8a = "\tSignature: $asig\n";
-my $body8b = "\tPosition/Title: $atitle\n\n";
-my ($fbody) = ($bodyr . $body0 . $body1 . $body2 . $body2a . $body2b . $body2c . $body3 . $body3a . $body3b . $body4 . $body5 . $body6 . $body7 . $body8 . $body8a . $body8b);
-my $fbody_len = length($fbody);
+
 
 #PRINT SENT MESSAGE TO WEB PAGE
 print "Content-type: text/html\n\n";
@@ -114,23 +58,6 @@ print "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"
 print "<body style=\"background-color:powderblue;\"><FONT SIZE = 3>Thank you!<br>Your IC-213 message below has been queued<br>for delivery via Amateur Radio and the Winlink system.<br><br>";
 
 print "<br>$body0<br><br>$bodyr<br><br>$body1<br><br>$body2<br><br>$body2a<br><br>$body2b<br><br>$body2c<br><br>$body3<br><br>$body3a<br><br>$body3b<br><br>$body4<br><br>$body5<br><br>$body6<br><br>$body7<br><br>$body8<br><br>$body8a<br><br>$body8b</FONT><br><br>";
-
-#Add button to print web page
-print "<button onclick=\"myFunction()\">Print this page</button>";
-
-print "<script>";
-print "function myFunction() {";
-print "  window.print()\;";
-print "}";
-print "</script>";
-
-print "\&nbsp\;\&nbsp\;<input type=button onClick=\"location.href=\'index.pl\'\" value=\'Main Menu\'>";
-
-print "<br><br><br><br>";
-
-print "$filename\n";                                             ##FOR TESTING VIA OPENSHIFT
-
-print "</body></html>\n";
 
 
 #CREATE FILE FOR SENDING VIA WINLINK
