@@ -117,63 +117,13 @@ print "<form method=POST action=$cgiurl>\n";
 
 print "<input id=email name=EMAIL type=hidden>\n";
 
-# Reply checkbox
-print "<FONT SIZE = 3 color = Black><b>CHECK HERE IF REPLY</font>\&nbsp\;</b>\n";
-print "<input id=reply name=reply type=checkbox value=1 class=largerCheckbox><br><br>\n";
+#Fields of EMAIL form
 
-#Fields of 213 form
-# 1
-print "<FONT SIZE = 2 color = Black>1. Incident Name (Optional):</font><br>\n";
-print "<input id=incident name=incident size=40 type=text><br><br>\n";
+print "<FONT SIZE = 2 color = Black>Email Address:</font><br>\n";
+print "<input id=to name=to size=40 type=text><br><br>\n";
 
-# 2
-print "<FONT SIZE = 2 color = Black>2. To (Name):</font><br>\n";
-print "<input id=to name=to size=40 type=text><br>\n";
-
-print "<FONT SIZE = 2 color = Black>Position/Title:</font><br>\n";
-print "<input id=tpos name=tpos size=40 type=text><br>\n";
-
-print "<FONT SIZE = 2 color = Black>Email Address: <b>REQUIRED</b></font><FONT SIZE = 2 color = 0099CC><br>(Can be Winlink user alias)</font><br>\n";
-print "<input id=email name=email size=40 type=text><br>\n";
-
-print "<FONT SIZE = 2 color = Black>CC:</font><br>\n";
-print "<input id=cc name=cc size=40 type=text><br><br>\n";
-
-# 3
-print "<FONT SIZE = 2 color = Black>3. From (Name):</font><br>\n";
-print "<input id=from name=from size=40 type=text><br>\n";
-
-print "<FONT SIZE = 2 color = Black>Position/Title:</font><br>\n";
-print "<input id=title name=title size=40 type=text><br>\n";
-
-print "<FONT SIZE = 2 color = Black>Signature:</font><br>\n";
-print "<input id=sig name=sig size=40 type=text><br><br>\n";
-
-# 4
-print "<FONT SIZE = 2 color = Black>4. Subject:</font><br>\n";
-print "<input id=subject name=subject size=40 type=text>\n";
-
-# 5
-print "<br><br><FONT SIZE = 2 color = Black>5. Date:</font><br>\n";
-print "<input id=date name=date size=14 type=text value=$lmon\/$lmday\/$lyear>\n";
-
-# 6
-print "<br><FONT SIZE = 2 color = Black>6. Time:</font><br>\n";
-print "<input id=time name=time size=7 type=text value=$ftime><br><br>\n";
-
-# 7
-print "<FONT SIZE = 2 color = Black>7. Message: <b>REQUIRED</b></font><br>\n";
-print "<textarea name=msg cols=40 rows=10></textarea><br><br>";
-
-# 8
-print "<FONT SIZE = 2 color = Black>8. Approved by (Name):</font><br>\n";
-print "<input id=approved name=approved size=40 type=text><br>\n";
-
-print "<FONT SIZE = 2 color = Black>Position/Title:</font><br>\n";
-print "<input id=atitle name=atitle size=40 type=text><br>\n";
-
-print "<FONT SIZE = 2 color = Black>Signature:</font><br>\n";
-print "<input id=asig name=asig size=40 type=text><br><br>\n";
+print "<FONT SIZE = 2 color = Black>Enter Your Message:</font><br>\n";
+print "<input id=msg name=msg size=40 type=text><br>\n";
 
 print "<input type=submit> \* <input type=reset><br><br><br><br><br><br>\n";
 print "</form>";
