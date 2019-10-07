@@ -41,73 +41,19 @@ foreach $pair (@pairs) {
 #OUTPUT FOR FORM EMAIL
 #######################
 
-  if ($FORM{'EMAIL'}) {
+ if ($FORM{'EMAIL'}) {
  
 my $preamble = "\@ALLCALL APRS::EMAIL-2  :";
-my $email = $FORM{'email'};
+my $email = $FORM{'to'};
 my $msg = $FORM{'msg'};
 my $tag = "{01}";
+
+my $js8 = $preamble.$email."  $msg".$tag;
 	
 
 
 
-#PRINT SENT MESSAGE TO WEB PAGE
-print "Content-type: text/html\n\n";
-print "<html><head><title>FORM IC-213 QUEUED FOR DELIVERY</title></head>\n";
-print "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
-print "<body style=\"background-color:powderblue;\"><FONT SIZE = 3>Thank you!<br>Your IC-213 message below has been queued<br>for delivery via Amateur Radio and the Winlink system.<br><br>";
 
-print "<br>$body0<br><br>$bodyr<br><br>$body1<br><br>$body2<br><br>$body2a<br><br>$body2b<br><br>$body2c<br><br>$body3<br><br>$body3a<br><br>$body3b<br><br>$body4<br><br>$body5<br><br>$body6<br><br>$body7<br><br>$body8<br><br>$body8a<br><br>$body8b</FONT><br><br>";
-
-
-#CREATE FILE FOR SENDING VIA WINLINK
-
-#open TMP, '>', "/home/dwayne/.wl2k/mailbox/N4MIO/out/$filename";  ##FOR PRODUCTION
-
-open TMP, '>', "$filename";                                      ##FOR TESTING VIA OPENSHIFT
-
-print TMP "Mid: $mid\n";
-print TMP "Body: $fbody_len\n";
-print TMP "Content-Transfer-Encoding: 8bit\n";
-print TMP "Content-Type: text/plain; charset=ISO-8859-1\n";
-print TMP "Date: $gyear\/$gmon\/$gmday $ghour\:$gmin\n";      #2019/07/19 12:37
-print TMP "From: N4MIO\n";
-print TMP "Mbo: N4MIO\n";
-print TMP "Subject: $subject\n";
-print TMP "To: SMTP: $email\n";
-
-if ($cc) {     
-   print TMP "To: SMTP: $cc\n";
-	 }
-
-print TMP "Type: Private\n\n";
-print TMP $body0;
-print TMP $bodyr;
-print TMP $body1;
-print TMP $body2;
-print TMP $body2a;
-print TMP $body2b;
-print TMP $body2c;
-print TMP $body3;
-print TMP $body3a;
-print TMP $body3b;
-print TMP $body4;
-print TMP $body5;
-print TMP $body6;
-print TMP $body7;
-print TMP $body8;
-print TMP $body8a;
-print TMP $body8b;
-
-close TMP;
-
-
-  else {
-        &begin;
-       }
-
-exit;
-}
 
 #OUTPUT FOR FORM SMSGTE
 ###########################
