@@ -72,7 +72,7 @@ if ($FORM{'SMS'}) {
 }
 
 if ($FORM{'APRS'}) {
-&APRS;
+&toAPRS;
 }
 
 #SUBROUTINES
