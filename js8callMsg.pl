@@ -47,10 +47,11 @@ my $email = $FORM{'to'};
 my $msg = $FORM{'msg'};
 my $tag = "{01}";
 
-my $js8 = $preamble.$email."  $msg".$tag;
+#my $js8 = $preamble.$email."  $msg".$tag;
 	
 open TMP, '>', "$tmptxt";
-print TMP $js8;
+#print TMP $js8;
+print TMP "DUMB STUFF";
 close TMP;
 
 }
