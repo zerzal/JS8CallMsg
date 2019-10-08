@@ -53,7 +53,7 @@ open TMP, ">$tmptxt";
 print TMP "$js8";
 close TMP;
 
-
+}
 
 
 #OUTPUT FOR FORM SMSGTE
