@@ -9,7 +9,7 @@
 
 my $cgiurl = "http://js8callmsg-dcayers.cloudapps.unc.edu/";
 
-my $ver = "1.0";
+my $ver = "1.1";
 
 # PROCESS FORM DATA
 ########################
