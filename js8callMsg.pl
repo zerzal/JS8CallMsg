@@ -11,6 +11,8 @@ my $cgiurl = "http://js8callmsg-dcayers.cloudapps.unc.edu/";
 
 my $ver = "1.1";
 
+my $tmptxt = "js8msg.txt";
+
 # PROCESS FORM DATA
 ########################
 read(STDIN, my $buffer, $ENV{'CONTENT_LENGTH'});
