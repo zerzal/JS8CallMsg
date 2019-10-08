@@ -49,10 +49,10 @@ my $tag = "{01}";
 
 #my $js8 = $preamble.$email."  $msg".$tag;
 	
-open TMP, '>', "$tmptxt";
+#open TMP, '>', "$tmptxt";
 #print TMP $js8;
-print TMP "DUMB STUFF";
-close TMP;
+#print TMP "DUMB STUFF";
+#close TMP;
 
 }
 
