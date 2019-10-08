@@ -1,13 +1,13 @@
 #!/usr/bin/perl
 #JS8Call APRS MESSAGEING - see $ver below
 
- use strict;
- use warning;
+ #use strict;
+ #use warning;
   
 # SET VARIABLES
 #######################
 
-my $cgiurl = "http://js8callmsg-dcayers.cloudapps.unc.edu/";
+my $cgiurl = "http://js8callmsg-dcayers.cloudapps.unc.edu/index.pl";
 
 my $ver = "1.1";
 
@@ -47,10 +47,11 @@ my $email = $FORM{'to'};
 my $msg = $FORM{'msg'};
 my $tag = "{01}";
 
-my $js8 = $preamble.$email."  $msg".$tag;
+#my $js8 = $preamble.$email."  $msg".$tag;
 	
 open TMP, '>', "$tmptxt";
-print TMP $js8;
+#print TMP $js8;
+print TMP "JUNK";
 close TMP;
 
 }
