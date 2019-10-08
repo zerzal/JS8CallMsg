@@ -1,8 +1,8 @@
 #!/usr/bin/perl
 #JS8Call APRS MESSAGEING - see $ver below
 
- #use strict;
- #use warning;
+ use strict;
+ use warning;
   
 # SET VARIABLES
 #######################
