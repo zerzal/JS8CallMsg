@@ -1,6 +1,3 @@
-$value="\"@ALLCALL APRS::SMSGTE   :@${phone} ${msg}\""
-
-
 #!/usr/bin/perl
 #JS8Call APRS MESSAGEING - see $ver below
 
