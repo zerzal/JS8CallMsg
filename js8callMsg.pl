@@ -10,7 +10,7 @@ $value="\"@ALLCALL APRS::SMSGTE   :@${phone} ${msg}\""
 # SET VARIABLES
 #######################
 
-my $cgiurl = "index.pl";
+my $cgiurl = "js8callMsg.pl";
 
 my $ver = "1.0";
 
@@ -80,6 +80,7 @@ if ($FORM{'APRS'}) {
 
 #SUBROUTINES
 #######################
+
 #Main Menu
 sub begin {
 print "Content-type: text/html\n\n";
@@ -137,28 +138,60 @@ exit;
 #FORM SMS
 sub toSMS {
 print "Content-type: text/html\n\n";
-print "<html><head><title>FORM ARRL RADIOGRAM</title></head>\n";
-print "<body><FONT SIZE = 5><b>FORM ARRL RADIOGRAM</b></FONT><br><br>\n";
-print "<FONT SIZE = 2 color = Black>ARRL RADIOGRAM GOES HERE</font>\&nbsp\;\&nbsp\;\n";
+print "<html><head><title>APRS SMS MESSAGE - JS8Call</title>";
+print "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+print "<!-- Style to set the size of checkbox --> <style> input.largerCheckbox { width: 30px; height: 30px; } </style>";
+print "</head>\n";
+print "<body style=\"background-color:FFCC33;\"><FONT SIZE = 5><b>APRS SMS MESSAGE<br>JS8Call</b></FONT><br><br><br>\n";
 
 print "<form method=POST action=$cgiurl>\n";
 
-print "<input id=rgram name=rgram type=hidden value=radiogram>\n";
-print "First name:<br><input type=text name=firstname><br>";
+print "<input id=sms name=SMS type=hidden>\n";
 
-print "<input type=submit> \* <input type=reset><br><br>\n";
-print "</form><br><br><br><br>\n";
+#Fields of SMS form
+
+print "<FONT SIZE = 2 color = Black>Phone Number or Shortcut:</font><br>\n";
+print "<input id=to name=to size=40 type=text><br><br>\n";
+
+print "<FONT SIZE = 2 color = Black>Enter Your Message:</font><br>\n";
+print "<input id=msg name=msg size=40 type=text><br>\n";
+
+print "<input type=submit> \* <input type=reset><br><br><br><br><br><br>\n";
+print "</form>";
+
 print "</body></html>\n";
+
 exit;
+
 }
 
 #FORM APRS
 sub toAPRS {
 print "Content-type: text/html\n\n";
-print "<html><head><title>SIMPLE EMAIL</title></head>\n";
-print "<body><FONT SIZE = 5><b>SIMPLE EMAIL</b></FONT><br><br>\n";
-print "<FONT SIZE = 2 color = Black>SIMPLE EMAIL GOES HERE</font>\&nbsp\;\&nbsp\;\n";
+print "<html><head><title>APRS MESSAGE - JS8Call</title>";
+print "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+print "<!-- Style to set the size of checkbox --> <style> input.largerCheckbox { width: 30px; height: 30px; } </style>";
+print "</head>\n";
+print "<body style=\"background-color:FFCC33;\"><FONT SIZE = 5><b>APRS MESSAGE<br>JS8Call</b></FONT><br><br><br>\n";
+
+print "<form method=POST action=$cgiurl>\n";
+
+print "<input id=aprs name=APRS type=hidden>\n";
+
+#Fields of APRS form
+
+print "<FONT SIZE = 2 color = Black>Phone Number or Shortcut:</font><br>\n";
+print "<input id=to name=to size=40 type=text><br><br>\n";
+
+print "<FONT SIZE = 2 color = Black>Enter Your Message:</font><br>\n";
+print "<input id=msg name=msg size=40 type=text><br>\n";
+
+print "<input type=submit> \* <input type=reset><br><br><br><br><br><br>\n";
+print "</form>";
+
 print "</body></html>\n";
+
 exit;
+
 }
 
