@@ -95,7 +95,7 @@ print "<INPUT TYPE=submit NAME=SMS VALUE=SMS>\&nbsp\;\&nbsp\;";
 print "</form>\n";
 
 print "<FORM ACTION=$cgiurl METHOD=POST>";
-print "<INPUT TYPE=submit NAME=APRS	VALUE=APRS>";
+print "<INPUT TYPE=submit NAME=APRS VALUE=APRS>";
 print "</form>\n";
 
 print "</body></html>\n";
