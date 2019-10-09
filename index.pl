@@ -53,7 +53,7 @@ open TMP, '>', "$tmptxt";
 print TMP $js8;
 #print TMP "JUNK";
 close TMP;
-
+&begin;
 }
 
 
@@ -90,15 +90,15 @@ print "<body style=\"background-color:FF3333;\"><FONT SIZE = 5><b>APRS MESSEGING
 print "<br><FONT SIZE = 4 COLOR = BLUE><I>FORMS</I></FONT><BR><BR>";
 
 print "<FORM ACTION=$cgiurl METHOD=POST>";
-print "<INPUT TYPE=submit NAME=toemail VALUE=toemail>\&nbsp\;\&nbsp\;";
+print "<INPUT TYPE=submit NAME=toemail VALUE=EMAIL>\&nbsp\;\&nbsp\;";
 print "</form>\n";
 
 print "<FORM ACTION=$cgiurl METHOD=POST>";
-print "<INPUT TYPE=submit NAME=tosms VALUE=tosms>\&nbsp\;\&nbsp\;";
+print "<INPUT TYPE=submit NAME=tosms VALUE=SMS>\&nbsp\;\&nbsp\;";
 print "</form>\n";
 
 print "<FORM ACTION=$cgiurl METHOD=POST>";
-print "<INPUT TYPE=submit NAME=toaprs VALUE=toaprs>";
+print "<INPUT TYPE=submit NAME=toaprs VALUE=APRS>";
 print "</form>\n";
 
 print "</body></html>\n";
