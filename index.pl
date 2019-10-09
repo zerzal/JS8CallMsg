@@ -7,7 +7,7 @@
 # SET VARIABLES
 #######################
 
-my $cgiurl = "http://js8callmsg-dcayers.cloudapps.unc.edu/index.pl";
+my $cgiurl = "index.pl";
 
 my $ver = "1.1";
 
